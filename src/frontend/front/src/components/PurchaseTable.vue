@@ -1,6 +1,6 @@
 <template>
-  <div class="container border border-2">
-    <h2>Pedido de Compra</h2>
+  <div class="container border border-3 rounded shadow">
+    <h3 class="border-bottom py-2">Pedido de Compra</h3>
     <table class="table">
       <thead>
         <tr>
@@ -11,7 +11,9 @@
       </thead>
       <tbody>
         <tr v-for="purchase in purchaseResults" :key="purchase.id">
-          <td>{{ purchase.PurchaseOrderID }}</td>
+          <td class="fw-medium text-danger text-decoration-underline">
+            #{{ purchase.PurchaseOrderID }}
+          </td>
           <td>{{ purchase.MaterialName }}</td>
           <td>{{ purchase.Quantity }}</td>
         </tr>

@@ -22,7 +22,6 @@ export default {
   data() {
     return {
       searchTerm: "",
-      loading: false,
       resultsByTable: {
         equipment: [],
         product: [],
@@ -38,6 +37,7 @@ export default {
       axios
         .get(`http://localhost:3000/api/search/${this.searchTerm}`)
         .then((response) => {
+          // Filtrar e mapear resultados para resultsByTable
           this.resultsByTable.sales = response.data
             .filter((result) => result.SalesOrderID)
             .map((result) => ({
@@ -80,9 +80,6 @@ export default {
         })
         .catch((error) => {
           console.error("Erro na busca:", error);
-        })
-        .finally(() => {
-          this.loading = false;
         });
     },
   },

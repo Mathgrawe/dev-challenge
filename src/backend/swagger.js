@@ -1,14 +1,14 @@
 const swaggerAutogen = require("swagger-autogen")();
 
 const outputFile = "./swagger-output.json";
-const endpointsFiles = ["./routes/searchRoutes.ts"];
+const endpointsFiles = ["./routes/routes.ts"];
 
 const doc = {
   info: {
-    title: "Meu Projeto Swagger",
-    description: "Descrição do meu projeto Swagger.",
+    title: "MultiSearch",
+    description: "API de consulta.",
   },
-  host: "localhost:3000",
+  host: "localhost:3000/api",
   basePath: "/",
   schemes: ["http"],
 };

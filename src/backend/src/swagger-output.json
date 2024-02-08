@@ -1,19 +1,18 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "1.0.0",
-    "title": "REST API",
-    "description": ""
+    "title": "MultiSearch API",
+    "description": "API de consulta",
+    "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "basePath": "/",
-  "schemes": [
-    "http"
-  ],
+  "basePath": "/api",
+  "schemes": ["http"],
   "paths": {
     "/": {
       "get": {
-        "description": "",
+        "summary": "Página inicial",
+        "description": "Endpoint para a página inicial da API.",
         "responses": {
           "200": {
             "description": "OK"
@@ -23,18 +22,34 @@
     },
     "/search/{query}": {
       "get": {
-        "description": "",
+        "summary": "Consulta de Dados",
+        "description": "Endpoint para realizar uma consulta utilizando um termo de busca.",
         "parameters": [
           {
             "name": "query",
             "in": "path",
+            "description": "Termo de busca a ser utilizado na consulta.",
             "required": true,
             "type": "string"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "examples": {
+              "application/json": {
+                "result": [
+                  {
+                    "id": 1,
+                    "name": "Exemplo de Dado 1"
+                  },
+                  {
+                    "id": 2,
+                    "name": "Exemplo de Dado 2"
+                  }
+                ]
+              }
+            }
           }
         }
       }

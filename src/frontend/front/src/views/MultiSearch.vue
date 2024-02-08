@@ -1,33 +1,38 @@
 <template>
   <div
-    class="container d-flex flex-column align-items-center justify-content-center text-center"
+    class="container-md custom-class d-flex flex-column align-items-center justify-content-center"
   >
-    <img
-      src="@/assets/images/logo_multisearch.png"
-      class="img-fluid mb-4"
-      alt="Logo Multisearch"
-    />
+    <img src="@/assets/images/logo_multisearch.png" class="img-fluid mb-4" />
 
     <Search @search-results-updated="updateTables" />
 
-    <div class="d-flex justify-content-start align-items-start mt-3">
-      <p class="text-start">Foram encontrados {{ totalResults }} resultados</p>
+    <div class="container mt-3">
+      <p class="text-secondary fs-6">
+        Foram encontrados {{ totalResults }} resultados.
+      </p>
     </div>
 
-    <div v-if="totalResults === 0">
-      <p>Nenhum resultado encontrado.</p>
+    <div class="container" v-if="totalResults === 0">
+      <p class="text-secondary fs-6">Nenhum resultado encontrado.</p>
     </div>
 
-    <SaleTable v-if="saleResults.length > 0" :saleResults="saleResults" />
+    <SaleTable
+      class="mt-3"
+      v-if="saleResults.length > 0"
+      :saleResults="saleResults"
+    />
     <PurchaseTable
+      class="my-3"
       v-if="purchaseResults.length > 0"
       :purchaseResults="purchaseResults"
     />
     <ProductTable
+      class="my-3"
       v-if="productResults.length > 0"
       :productResults="productResults"
     />
     <EquipmentTable
+      class="my-3"
       v-if="equipmentResults.length > 0"
       :equipmentResults="equipmentResults"
     />
@@ -99,3 +104,11 @@ export default {
   },
 };
 </script>
+
+<style>
+@media (min-width: 768px) {
+  .custom-class {
+    max-width: 576px !important;
+  }
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
-  <div class="container border border-2">
-    <h2>Equipamento</h2>
+  <div class="container border border-3 rounded shadow">
+    <h3 class="border-bottom py-2">Equipamento</h3>
     <table class="table">
       <thead>
         <tr>
@@ -10,7 +10,9 @@
       </thead>
       <tbody>
         <tr v-for="equipment in equipmentResults" :key="equipment.id">
-          <td>{{ equipment.EquipmentID }}</td>
+          <td class="fw-medium text-danger text-decoration-underline">
+            #{{ equipment.EquipmentID }}
+          </td>
           <td>{{ equipment.EquipmentName }}</td>
         </tr>
       </tbody>
